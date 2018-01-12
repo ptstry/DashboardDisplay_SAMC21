@@ -1257,6 +1257,55 @@ static inline void tc_enable(
 	/* Enable TC module */
 	tc_module->CTRLA.reg |= TC_CTRLA_ENABLE;
 }
+static inline void tc_enable2(
+const struct tc_module *const module_inst_1,
+const struct tc_module *const module_inst_2)
+{
+	/* Sanity check arguments */
+	Assert(module_inst_1);
+	Assert(module_inst_1->hw);
+	Assert(module_inst_2);
+	Assert(module_inst_2->hw);
+
+	/* Get a pointer to the module's hardware instance */
+	TcCount8 *const tc_module_1 = &(module_inst_1->hw->COUNT8);
+	TcCount8 *const tc_module_2 = &(module_inst_2->hw->COUNT8);
+
+	while (tc_is_syncing(module_inst_1)) {
+		/* Wait for sync */
+	}
+
+	/* Enable TC module */
+	tc_module_1->CTRLA.reg |= TC_CTRLA_ENABLE;
+	tc_module_2->CTRLA.reg |= TC_CTRLA_ENABLE;
+}
+static inline void tc_enable3(
+const struct tc_module *const module_inst_1,
+const struct tc_module *const module_inst_2,
+const struct tc_module *const module_inst_3)
+{
+	/* Sanity check arguments */
+	Assert(module_inst_1);
+	Assert(module_inst_1->hw);
+	Assert(module_inst_2);
+	Assert(module_inst_2->hw);
+	Assert(module_inst_3);
+	Assert(module_inst_3->hw);
+
+	/* Get a pointer to the module's hardware instance */
+	TcCount8 *const tc_module_1 = &(module_inst_1->hw->COUNT8);
+	TcCount8 *const tc_module_2 = &(module_inst_2->hw->COUNT8);
+	TcCount8 *const tc_module_3 = &(module_inst_3->hw->COUNT8);
+
+	while (tc_is_syncing(module_inst_1)) {
+		/* Wait for sync */
+	}
+
+	/* Enable TC module */
+	tc_module_1->CTRLA.reg |= TC_CTRLA_ENABLE;
+	tc_module_2->CTRLA.reg |= TC_CTRLA_ENABLE;
+	tc_module_3->CTRLA.reg |= TC_CTRLA_ENABLE;
+}
 
 /**
  * \brief Disables the TC module.

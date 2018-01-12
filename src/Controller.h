@@ -15,6 +15,7 @@ volatile uint32_t tc_1_val;
 
 struct tc_module tc_instance_0; // DCLK instance
 struct tc_module tc_instance_1; // HSYNC instance
+struct tcc_module tc_instance_2; // VSYNC instance
 
 
 
